@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoListController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,13 @@ Route::name('addClient')->get('/addclient', [TodoListController::class, 'newClie
 Route::name('saveClient')->post('/saveClient', [TodoListController::class, 'addClient']);
 Route::name('deleteClient')->post('/deleteClient/{id}', [TodoListController::class, 'deleteClient']);
 Route::name('clientTasks')->get('/clientTasks/{id}', [TodoListController::class, 'clientTasks']);
+
+Route::name('profile')->get('/profile', [PagesController::class, 'profile'])->middleware('auth');
+
+Route::name('news')->get('/news', [PagesController::class, 'news']);
+Route::name('addNews')->get('/addNews', [NewsController::class, 'addNews']);
+Route::name('saveNews')->post('/saveNews', [NewsController::class, 'saveNews']);
+Route::name('deleteNews')->post('/deleteNews/{id}', [NewsController::class, 'deleteNews']);
 
 Auth::routes();
 

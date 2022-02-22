@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container-style mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+<div class="container-style mt-8 dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
     <h1>Create new post</h1>
     <form action="{{ route('saveNews') }}" method="post" accept-charset="UTF-8" class="form-style">
         {{ csrf_field() }}

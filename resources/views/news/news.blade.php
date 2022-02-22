@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container-style mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg" style="margin-top: 150px; margin-bottom: 150px;">
+<div class="container container-style mt-8 dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
 @guest
 
     <h1>News</h1>
 
     @foreach ($news as $new)
-        <div style="width: -webkit-fill-available; margin: 20px 40px; background-color: #1a202c; border-radius: 5px; padding: 20px;">
+        <div style="width: -webkit-fill-available; margin: 20px 40px; background-color: #1a202c; border-radius: 10px; padding: 20px;">
             <h3 style="margin: 0px; font-size: 30px;">{{ $new->title }}</h3>
             <p>{{ $new->text }}</p>
             <hr style="border: 1px solid #fff">
@@ -17,10 +17,16 @@
         </div>
     @endforeach
 
+    <div class="d-flex justify-content-center">
+        {!! $news->links() !!}
+    </div>
+
 @else
 
+    <h1>News</h1>
+
     @foreach ($news as $new)
-    <div style="width: -webkit-fill-available; margin: 20px 40px; background-color: #1a202c; border-radius: 5px; padding: 20px;">
+    <div style="width: -webkit-fill-available; margin: 20px 40px; background-color: #1a202c; border-radius: 10px; padding: 20px;">
         <h3 style="margin: 0px; font-size: 30px;">{{ $new->title }}</h3>
         <p>{{ $new->text }}</p>
         <hr style="border: 1px solid #fff">
@@ -35,6 +41,10 @@
         </form>
     </div>
     @endforeach
+
+    <div class="d-flex justify-content-center">
+        {!! $news->links() !!}
+    </div>
     
     <form action="{{ route('addNews') }}" method="get" style="display: flex; justify-content: center;">
         {{ csrf_field() }}
