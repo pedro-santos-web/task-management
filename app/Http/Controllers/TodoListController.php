@@ -42,7 +42,7 @@ class TodoListController extends Controller
 
     public function newTaskClient($id) {
 
-        $clientsid = Clients::find($id);
+        $clientsid = Clients::findOrFail($id);
         $clientsname = $clientsid->name;
 
         return view('tasks.addtasks', ['clientsid' => Clients::orderBy('created_at', 'ASC')->get()])->with(compact('clientsname'));
@@ -52,7 +52,7 @@ class TodoListController extends Controller
     public function deleteItem($id) {
 
         \Log::info($id);
-        $listItem = ListItem::find($id);
+        $listItem = ListItem::findOrFail($id);
         \Log::info($listItem);
         $listItem->is_complete = 1;
         $listItem->save();
@@ -85,7 +85,7 @@ class TodoListController extends Controller
     public function deleteClient($id) {
 
         \Log::info($id);
-        $client = Clients::find($id);
+        $client = Clients::findOrFail($id);
         \Log::info($client);
         $client->delete();
 
@@ -95,7 +95,7 @@ class TodoListController extends Controller
 
     public function clientTasks($id) {
         
-        $clients = Clients::find($id);
+        $clients = Clients::findOrFail($id);
         $clientid = $clients->id;
         \Log::info($id);
         $client = $clients->name;

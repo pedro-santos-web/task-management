@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="my-card">
                 <div style="color: #fff;" class="card-header">{{ __('Dashboard') }}</div>
 
                 <div style="color: #fff;" class="card-body">

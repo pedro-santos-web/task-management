@@ -23,6 +23,12 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            a {
+                text-decoration: none;
+            }
+            a:hover {
+                color: #cbd5e0;
+            }
             .container-style {
                 min-width: 600px;
                 color: white;
@@ -127,6 +133,11 @@
                 margin-left: 5px;
                 border: 5px;
             }
+            .notes-bottom {
+                width: 100%;
+                display: inline-flex;
+                justify-content: space-between;
+            }
         </style>
     </head>
     <body class="antialiased">
@@ -140,6 +151,8 @@
                 <a href="{{ route('clients') }}" style="font-weight: 700; color: #fff; font-size: 25px;">Clients</a>
                 <span style="font-weight: 700; color: #fff; font-size: 25px; margin-left: 30px; margin-right: 30px;">|</span>
                 <a href="{{ route('news') }}" style="font-weight: 700; color: #fff; font-size: 25px;">News</a>
+                <span style="font-weight: 700; color: #fff; font-size: 25px; margin-left: 30px; margin-right: 30px;">|</span>
+                <a href="{{ route('notes') }}" style="font-weight: 700; color: #fff; font-size: 25px;">Notes</a>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -184,6 +197,7 @@
                 @yield('content')
 
             </div>
+            
         </div>
 
         <footer style="width: 100%; padding-top: 30px; padding-bottom: 30px; background-color: #1a202c; border-top: 1px solid #ffffff;">
