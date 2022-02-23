@@ -20,7 +20,7 @@ class TodoListController extends Controller
         $clientsid = null;
         $clientsname = null;
 
-        return view('addtasks', ['clients' => Clients::orderBy('created_at', 'ASC')->get()])->with(compact('clientsname','clientsid'));
+        return view('tasks.addtasks', ['clients' => Clients::orderBy('created_at', 'ASC')->get()])->with(compact('clientsname','clientsid'));
     
     }
 
@@ -45,7 +45,7 @@ class TodoListController extends Controller
         $clientsid = Clients::find($id);
         $clientsname = $clientsid->name;
 
-        return view('addtasks', ['clientsid' => Clients::orderBy('created_at', 'ASC')->get()])->with(compact('clientsname'));
+        return view('tasks.addtasks', ['clientsid' => Clients::orderBy('created_at', 'ASC')->get()])->with(compact('clientsname'));
 
     }
 
@@ -63,7 +63,7 @@ class TodoListController extends Controller
 
     public function newClient() {
 
-        return view('addclients');
+        return view('clients.addclients');
 
     }
 
@@ -100,7 +100,7 @@ class TodoListController extends Controller
         \Log::info($id);
         $client = $clients->name;
         
-        return view('clienttasks',
+        return view('clients.clienttasks',
             ['clients' => Clients::where('id', $clients)->get()],
             ['listItems' => ListItem::where('is_complete', 0)->where('client', $client)->orderBy('client', 'ASC')->get()]
         )->with(compact('client','clientid'));
